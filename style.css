@@ -1,0 +1,174 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  cursor: url(img/tennis-ball-tennis-ball.png), pointer;
+}
+
+canvas {
+  display: block;
+  position: absolute;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  /* cursor: none; */
+  overflow: hidden;
+}
+
+#scoreScreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  background-color: rgba(0, 0, 0, 0.8);
+  place-content: center;
+  z-index: 1;
+}
+
+#scoreScreen.inactive {
+  display: none;
+}
+
+#scoreScreen .scoreScreen-container {
+  background-color: transparent;
+  display: flex;
+  width: 300px;
+  height: 200px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.scoreScreen-container h1 {
+  width: 300px;
+  font-size: 50px;
+  text-align: center;
+}
+
+.scoreScreen-container button {
+  width: 70%;
+  height: 50px;
+}
+
+#startScreen {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #1a5511;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+#startScreen.inactive {
+  display: none;
+}
+
+h1 {
+  color: white;
+}
+
+#startScreen p {
+  color: white;
+  margin-top: 20px;
+  text-transform: uppercase;
+}
+
+.settings {
+  display: flex;
+  width: 300px;
+  justify-content: space-around;
+}
+
+.settings h2 {
+  color: yellow;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.dropdown {
+  position: relative;
+  margin-bottom: 130px;
+  margin-top: 15px;
+}
+
+button {
+  cursor: pointer;
+  background-color: white;
+  border: none;
+  padding: 10px 10px 7px;
+  width: 120px;
+  transition: 0.3s;
+}
+
+button:hover {
+  color: white;
+  background-color: black;
+}
+
+.dropdown button {
+  border-bottom: 3px solid white;
+}
+
+.dropdown button:nth-child(odd) {
+  border-left: 1px solid black;
+}
+
+.dropdown button:hover {
+  border-bottom: 3px solid black;
+}
+
+.dropdown-content {
+  display: none;
+  background-color: white;
+  position: absolute;
+  transition: 0.3s;
+}
+
+.dropdown:hover .dropdown-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-item {
+  cursor: pointer;
+  line-height: 150%;
+  padding: 5px;
+  transition: 0.3s;
+  width: 120px;
+  text-align: center;
+}
+
+.dropdown-item:hover {
+  color: white;
+  background-color: black;
+}
+
+#startGame {
+  cursor: pointer;
+  padding: 10px 15px;
+  background-color: #fff;
+  border: none;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+#startGame:hover {
+  color: white;
+  background-color: black;
+}

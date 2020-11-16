@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section id="scoreScreen" class="inactive">
+      <div class="scoreScreen-container">
+        <h1 id="scoreScreen-scoreDisplay">YOU WIN</h1>
+        <button id="scoreScreen-btnReplay">Play again</button>
+        <button id="scoreScreen-btnSettings">Settings</button>
+      </div>
+    </section>
+    <section id="startScreen">
+      <h1>SIMPLE TENNIS</h1>
+      <p>Move your mouse to move the paddle</p>
+      <p>Settings:</p>
+      <section class="settings">
+        <div class="dropdown gameSpeed">
+          <button>Ball speed</button>
+          <h2 id="speed-display"></h2>
+          <div class="dropdown-content">
+            <div type="speed" value="low" class="dropdown-item">slow</div>
+            <div type="speed" value="medium" class="dropdown-item">normal</div>
+            <div type="speed" value="high" class="dropdown-item">fast</div>
+          </div>
+        </div>
+        <div class="dropdown gameDifficulty">
+          <button>Difficulty</button>
+          <h2 id="difficulty-display"></h2>
+          <div class="dropdown-content">
+            <div type="difficulty" value="low" class="dropdown-item">low</div>
+            <div type="difficulty" value="medium" class="dropdown-item">
+              medium
+            </div>
+            <div type="difficulty" value="high" class="dropdown-item">high</div>
+          </div>
+        </div>
+        <div class="dropdown canvasSize">
+          <button>Court size</button>
+          <h2 id="size-display"></h2>
+          <div class="dropdown-content">
+            <div type="size" value="small" class="dropdown-item">small</div>
+            <div type="size" value="medium" class="dropdown-item">medium</div>
+            <div type="size" value="big" class="dropdown-item">big</div>
+          </div>
+        </div>
+      </section>
+      <button id="startGame">START</button>
+    </section>
+    <canvas id="gameCanvas"> </canvas>
+    <script src="settings.js"></script>
+    <script defer src="main.js"></script>
+  </body>
+</html>

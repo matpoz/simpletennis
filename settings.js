@@ -2,6 +2,16 @@ const canvas = document.getElementById("gameCanvas");
 
 // START SCREEN AND SCORE SCREEN ELEMENTS
 const startScreen = document.getElementById("startScreen");
+
+// POPULATE POINTS DROPDOWN WITH OPTIONS BEFORE SELECTING ALL BUTTONS
+const pointsDropdown = document.querySelector(".dropdown-points");
+
+for (let i = 1; i <= 20; i++) {
+  let dropdownElement = document.createElement("div");
+  dropdownElement.innerHTML = `<div type="points" class="dropdown-item" value=${i}>${i}</div>`;
+  pointsDropdown.appendChild(dropdownElement);
+}
+
 const startScreenSettingsButtonsAll = [
   ...document.querySelectorAll(".dropdown-item"),
 ];
@@ -9,7 +19,6 @@ const startScreenStartButton = document.getElementById("startGame");
 const difficultyDisplay = document.getElementById("difficulty-display");
 const speedDisplay = document.getElementById("speed-display");
 const sizeDisplay = document.getElementById("size-display");
-
 const scoreScreen = document.getElementById("scoreScreen");
 const scoreScreenReplayButton = document.getElementById(
   "scoreScreen-btnReplay"
@@ -18,6 +27,7 @@ const scoreScreenSettingsButton = document.getElementById(
   "scoreScreen-btnSettings"
 );
 const scoreDisplay = document.getElementById("scoreScreen-scoreDisplay");
+const pointsDisplay = document.getElementById("points-display");
 
 // CANVAS CONTEXT
 const canvasContext = canvas.getContext("2d");
@@ -29,6 +39,7 @@ sizeDisplay.textContent = "medium";
 // SCORE
 let score = { player: 0, AI: 0 };
 let winScore = 3;
+pointsDisplay.textContent = winScore;
 const resetScore = () => {
   score.player = 0;
   score.AI = 0;
@@ -103,7 +114,6 @@ for (let button of startScreenSettingsButtonsAll) {
     let value = e.target.getAttribute("value");
 
     if (type === "difficulty") {
-      console.log("difficulty");
       switch (value) {
         case "low":
           AIPaddleSpeed = AIPaddleSpeeds.low;
@@ -118,9 +128,7 @@ for (let button of startScreenSettingsButtonsAll) {
           difficultyDisplay.textContent = "high";
           break;
       }
-    }
-
-    if (type === "speed") {
+    } else if (type === "speed") {
       switch (value) {
         case "low":
           ballSpeed = ballSpeeds.low;
@@ -136,9 +144,7 @@ for (let button of startScreenSettingsButtonsAll) {
           break;
       }
       changeBallSpeed();
-    }
-
-    if (type === "size") {
+    } else if (type === "size") {
       switch (value) {
         case "small":
           {
@@ -164,7 +170,10 @@ for (let button of startScreenSettingsButtonsAll) {
       }
       resetElements();
     }
-
+    if (type === "points") {
+      winScore = Number(value);
+      pointsDisplay.textContent = winScore;
+    }
     canvas.width = width;
     canvas.height = height;
   });

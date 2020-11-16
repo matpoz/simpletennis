@@ -11,6 +11,7 @@ body {
   height: 100vh;
   position: relative;
   overflow: hidden;
+  background-color: #000;
   cursor: url(img/tennis-ball-tennis-ball.png), pointer;
 }
 
@@ -20,10 +21,16 @@ canvas {
   top: 50vh;
   left: 50vw;
   transform: translate(-50%, -50%);
-  /* cursor: none; */
   overflow: hidden;
 }
-
+h3 {
+  color: white;
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.8;
+}
 #scoreScreen {
   position: absolute;
   top: 0;
@@ -113,7 +120,7 @@ button {
   border: none;
   padding: 10px 10px 7px;
   width: 120px;
-  transition: 0.3s;
+  transition: 0.2s;
 }
 
 button:hover {
@@ -137,7 +144,7 @@ button:hover {
   display: none;
   background-color: white;
   position: absolute;
-  transition: 0.3s;
+  transition: 0.2s;
 }
 
 .dropdown:hover .dropdown-content {
@@ -145,11 +152,15 @@ button:hover {
   flex-direction: column;
 }
 
+.dropdown-points {
+  overflow-y: scroll;
+  height: 200px;
+}
 .dropdown-item {
   cursor: pointer;
   line-height: 150%;
   padding: 5px;
-  transition: 0.3s;
+  transition: 0.2s;
   width: 120px;
   text-align: center;
 }
@@ -165,7 +176,7 @@ button:hover {
   background-color: #fff;
   border: none;
   border-radius: 3px;
-  transition: 0.3s;
+  transition: 0.2s;
 }
 
 #startGame:hover {
